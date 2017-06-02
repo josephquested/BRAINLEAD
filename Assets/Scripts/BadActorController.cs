@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour {
+public class BadActorController : MonoBehaviour {
 
 	// SYSTEM //
 
@@ -18,7 +18,7 @@ public class PlayerBullet : MonoBehaviour {
 
 	IEnumerator MovementRoutine ()
 	{
-		transform.Translate(Vector2.down);
+		transform.Translate(Vector2.up);
 		yield return new WaitForSeconds(movementDelay);
 		StartCoroutine(MovementRoutine());
 	}
