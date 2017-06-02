@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Up"))
 		{
-			Move(Vector2.right);
+			Move(Vector2.up);
 		}
 		if (Input.GetButtonDown("Right"))
 		{
@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetButtonDown("Down"))
 		{
-			Move(Vector2.right);
+			Move(Vector2.down);
 		}
 		if (Input.GetButtonDown("Left"))
 		{
-			Move(Vector2.right);
+			Move(Vector2.left);
 		}
 	}
 
@@ -50,11 +50,14 @@ public class PlayerController : MonoBehaviour {
 
 	// ATTACK //
 
+	public GameObject bulletPrefab;
+	public Transform bulletSpawn;
+
 	void UpdateFire ()
 	{
 		if (Input.GetButtonDown("Fire"))
 		{
-			// attack
+			Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 		}
 	}
 }
