@@ -22,4 +22,19 @@ public class PlayerBullet : MonoBehaviour {
 		yield return new WaitForSeconds(movementDelay);
 		StartCoroutine(MovementRoutine());
 	}
+
+	// COLLISION //
+
+	public string color;
+
+	void OnTriggerEnter2D (Collider2D collider)
+	{
+		print(collider.name);
+
+		if (collider.GetComponent<Hittable>() != null)
+		{
+			collider.GetComponent<Hittable>().ReceiveHit(this);
+			Destroy(gameObject);
+		}
+	}
 }
